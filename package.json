@@ -8,7 +8,9 @@
     "dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:coverage": "vitest --coverage",
+    "test:ui": "vitest --ui"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +30,8 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
+    "@vitest/coverage-v8": "1.2.1",
+    "@vitest/ui": "1.2.1",
     "prisma": "5.8.1"
   }
 }
