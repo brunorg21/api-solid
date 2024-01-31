@@ -8,7 +8,7 @@ import { ResourceNotFoundError } from "./errors/resource-not-found-error";
 
 let usersRepository: InMemoryUsersRepository;
 let sut: GetUserProfileUseCase;
-describe("authenticate use case", async () => {
+describe("get-user-profile use case", async () => {
   beforeEach(() => {
     usersRepository = new InMemoryUsersRepository();
     sut = new GetUserProfileUseCase(usersRepository);
@@ -30,7 +30,7 @@ describe("authenticate use case", async () => {
   });
 
   it("should not be able to get user profile with wrong id", async () => {
-    expect(() =>
+    await expect(() =>
       sut.execute({
         userId: "non-existing-id",
       })
