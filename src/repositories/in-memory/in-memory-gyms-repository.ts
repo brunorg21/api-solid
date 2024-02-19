@@ -5,6 +5,7 @@ import { randomUUID } from "crypto";
 import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coordinates";
 
 export class InMemoryGymsRepository implements GymsRepository {
+  public items: Gym[] = [];
   async findManyNearby(params: FindManyNearbyParams) {
     return this.items.filter((item) => {
       const distance = getDistanceBetweenCoordinates(
@@ -26,7 +27,6 @@ export class InMemoryGymsRepository implements GymsRepository {
       .filter((item) => item.title.includes(query))
       .slice((page - 1) * 20, page * 20);
   }
-  public items: Gym[] = [];
 
   async findById(id: string): Promise<Gym | null> {
     const gym = this.items.find((item) => item.id === id);
