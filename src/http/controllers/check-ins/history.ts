@@ -1,5 +1,4 @@
 import { makeFetchMemberCheckInsHistoryUseCase } from "@/use-cases/factories/make-fetch-member-check-ins-history-use-case";
-import { makeSearchGymsUseCase } from "@/use-cases/factories/make-search-gyms-use-case";
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 
@@ -18,7 +17,7 @@ export async function history(request: FastifyRequest, reply: FastifyReply) {
     userId: request.user.sub,
   });
 
-  return reply.status(201).send({
+  return reply.status(200).send({
     checkIns,
   });
 }
